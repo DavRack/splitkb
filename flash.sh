@@ -1,1 +1,1 @@
-cp code.py /run/media/david/SPLITKBL/code.py
+cp config/* /run/media/david/SPLITKBL/
