@@ -71,6 +71,7 @@ def convert(keyList):
         "%":KC.LSFT(KC.N5),
         "&":KC.LSFT(KC.N6),
         "~":KC.RALT(KC.SCLN),
+        "@":KC.RALT(KC.Q),
     }
     newKeys = []
     
