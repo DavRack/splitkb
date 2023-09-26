@@ -1,16 +1,24 @@
 import board
 from boards import getBoard
-from utilities import convert, HT
+from utilities import convert, LayerCreator, HT
 from kmk.keys import KC
 
 
 keyboard = getBoard()
 
-HomeLy = KC.TO(0)
-NumberLy = KC.TG(1)
-NavLy = KC.MO(2)
-FnLy = KC.TG(3)
-SymbolLy = KC.TG(4)
+lc = LayerCreator()
+
+Home = lc.create_layer()
+Number = lc.create_layer() 
+Nav = lc.create_layer() 
+Fn = lc.create_layer() 
+Symbol = lc.create_layer() 
+
+HomeLy = KC.TO(Home.id)
+NumberLy = KC.TG(Number.id)
+NavLy = KC.MO(Nav.id)
+FnLy = KC.TG(Fn.id)
+SymbolLy = KC.TG(Symbol.id)
 
 keyboard.keymap = [
     [

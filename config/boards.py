@@ -20,7 +20,7 @@ def getBoard():
     for kb in all_boards:
         if fsName.startswith(kb.fsId):
             return kb
-    return None
+    return all_boards[0]
 
 def splitKb():
     self = KMKKeyboard()

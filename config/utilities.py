@@ -1,4 +1,36 @@
 from kmk.keys import KC
+from boards import getBoard
+
+class Layer:
+    layout = ""
+    id = 0
+
+    def __init__(self, id):
+        self.layout = [ KC.NO for _ in range(id)]
+        self.id = id
+
+    def add_layout(self, layout):
+        self.layout = convert(layout)
+
+class LayerCreator:
+    layers = []
+    next_layer_id = 0
+
+    def __init__(self) -> None:
+        kb = getBoard()
+        self.layout_lenght = len(kb.coord_mapping)
+    
+    def create_layer(self):
+        new_layer = Layer(self.next_layer_id)
+        self.layers.append(new_layer)
+        self.next_layer_id += 1
+
+        return new_layer
+    
+    def get_layers(self):
+        return [layer["layout"] for layer in self.layers]
+
+
 
 def HT(tap, hold):
     return KC.HT(tap, hold, prefer_hold=True, tap_interrupted=False, tap_time=300)
