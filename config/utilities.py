@@ -2,14 +2,22 @@ from kmk.keys import KC
 from boards import getBoard
 
 class Layer:
-    layout = ""
+    layout = []
     id = 0
 
     def __init__(self, id):
         self.layout = [ KC.NO for _ in range(id)]
         self.id = id
+        self.DF = KC.DF(id)
+        self.MO = KC.MO(id)
+        # this keycodes needs a partial apply to work
+        # self.LM = KC.LM(id, mod) 
+        # self.LT = KC.LT(id, kc)
+        self.TG = KC.TG(id)
+        self.TO = KC.TO(id)
+        self.TT = KC.TT(id)
 
-    def add_layout(self, layout):
+    def set_layout(self, layout):
         self.layout = convert(layout)
 
 class LayerCreator:
@@ -17,8 +25,8 @@ class LayerCreator:
     next_layer_id = 0
 
     def __init__(self) -> None:
-        kb = getBoard()
-        self.layout_lenght = len(kb.coord_mapping)
+        self.kb = getBoard()
+        self.layout_lenght = len(self.kb.coord_mapping)
     
     def create_layer(self):
         new_layer = Layer(self.next_layer_id)
@@ -28,12 +36,12 @@ class LayerCreator:
         return new_layer
     
     def get_layers(self):
-        return [layer["layout"] for layer in self.layers]
+        return [layer.layout for layer in self.layers]
 
 
 
 def HT(tap, hold):
-    return KC.HT(tap, hold, prefer_hold=True, tap_interrupted=False, tap_time=300)
+    return KC.HT(convert([tap])[0], convert([hold])[0], prefer_hold=True, tap_interrupted=False, tap_time=300)
 
 def convert(keyList):
     keyDefinition = {
@@ -72,6 +80,7 @@ def convert(keyList):
         "&":KC.LSFT(KC.N6),
         "~":KC.RALT(KC.SCLN),
         "@":KC.RALT(KC.Q),
+        "´":KC.LBRC,
     }
     newKeys = []
     
