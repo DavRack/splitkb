@@ -1,1 +1,1 @@
-cp config/* /run/media/david/SPLITKBL/
+sudo cp config/* /Volumes/SPLITKBL/

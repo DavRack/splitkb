@@ -2,8 +2,10 @@ import board
 from boards import getBoard
 from utilities import LayerCreator, HT
 from kmk.keys import KC
+from kmk.extensions.international import International
 
-lc = LayerCreator()
+profile = "osx"  # linux
+lc = LayerCreator(profile=profile)
 
 Home = lc.create_layer()
 MainFn = lc.create_layer()
@@ -69,8 +71,8 @@ Symbols.set_layout(
    #]),
 
 
-
 keyboard = getBoard()
+keyboard.extensions.append(International())
 keyboard.keymap = lc.get_layers()
 
 if __name__ == '__main__':
