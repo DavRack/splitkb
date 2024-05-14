@@ -50,7 +50,7 @@ def HT(tap, hold):
 
 
 def convert(keyList, profile="osx"):
-    linuxkeyDefinition = {  # default key definition
+    keyDefinition = {  # default key definition
         "(": KC.LSFT(KC.N8),
         ")": KC.LSFT(KC.N9),
         "[": KC.LSFT(KC.QUOT),
@@ -85,23 +85,17 @@ def convert(keyList, profile="osx"):
         "~": KC.RALT(KC.SCLN),
         "@": KC.RALT(KC.Q),
         "´": KC.LBRC,
-        "`": KC.RALT(KC.QUOT),
-    }
-
-    osxKeyDefinition = {
         "`": KC.RALT(KC.BSLS),
     }
+
+    if profile == "osx":
+        keyDefinition["`"] = KC.RALT(KC.BSLS)
 
     newKeys = []
 
     for key in keyList:
         if type(key) == str:
-            k = None
-            if profile == "osx":
-                k = osxKeyDefinition.get(key, None)
-
-            if k is None:
-                k = linuxkeyDefinition.get(key, KC.NO)
+            k = keyDefinition.get(key, KC.NO)
             newKeys.append(k)
         else:
             newKeys.append(key)
