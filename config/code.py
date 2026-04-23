@@ -18,15 +18,15 @@ Home.set_layout(
     [
         KC.Q,             KC.W, KC.E, KC.R,              KC.T,                                    KC.Y,   KC.U, KC.I,    KC.O,   KC.P,
         KC.A,             KC.S, KC.D, KC.F,              KC.G,                                    KC.H,   KC.J, KC.K,    KC.L,   KC.SCLN,
-        HT(KC.Z,KC.LSFT), KC.X, KC.C, KC.V,              KC.B,                                    KC.N,   KC.M, KC.COMM, KC.DOT, HT("-",KC.LSFT),
+        HT(KC.Z,KC.LSFT), KC.X, KC.C, KC.V,              KC.B,                                    KC.N,   KC.M, KC.COMM, KC.DOT, HT("-",KC.RSFT),
                                       HT(KC.ESC,Nav.MO), MainFn.MO, HT("´",Numbers.MO),  KC.BSPC, KC.SPC, KC.ENT,     
     ]
 )
 MainFn.set_layout(
     [
         KC.Q,            KC.W,            KC.E,               KC.R,               KC.T,                            KC.Y,                 KC.U,                KC.I,               KC.O,               KC.P,
-        KC.A,            HT(KC.S,KC.LCTL),KC.HT(KC.D,KC.LGUI),KC.HT(KC.F,KC.LALT),KC.G,                            KC.H,                 KC.HT(KC.J,KC.LALT), KC.HT(KC.K,KC.LGUI),KC.HT(KC.L,KC.LCTL),KC.SCLN,
-        HT(KC.Z,KC.LSFT),KC.X,            KC.C,               KC.V,               KC.B,                            KC.N,                 KC.M,                KC.COMM,            KC.DOT,             HT("-",KC.LSFT),
+        KC.A,            HT(KC.S,KC.LCTL),KC.HT(KC.D,KC.LALT),KC.HT(KC.F,KC.LGUI),KC.G,                            KC.H,                 KC.HT(KC.J,KC.LGUI), KC.HT(KC.K,KC.LALT),KC.HT(KC.L,KC.LCTL),KC.SCLN,
+        HT(KC.Z,KC.LSFT),KC.X,            KC.C,               KC.V,               KC.B,                            KC.N,                 KC.M,                KC.COMM,            KC.DOT,             HT("-",KC.RSFT),
                                                               KC.NO,              KC.NO, KC.NO,  HT(KC.BSPC,KC.NO),HT(KC.SPC,Symbols.MO),HT(KC.ENT,FnKeys.MO),
     ]
 )
@@ -41,7 +41,7 @@ Numbers.set_layout(
 Nav.set_layout(
     [
         KC.NO,       KC.NO,       KC.NO,       KC.NO,     KC.NO,                         KC.NO,     KC.NO,       KC.NO,     KC.NO,    KC.NO,
-        KC.NO,       KC.NO,       KC.NO,       KC.NO,     KC.NO,                         KC.LEFT, KC.DOWN,       KC.UP,   KC.RGHT,    KC.NO,
+        KC.NO,       KC.LCTL,     KC.LALT,     KC.LGUI,   KC.NO,                         KC.LEFT, KC.DOWN,       KC.UP,   KC.RGHT,    KC.NO,
         KC.NO,       KC.NO,       KC.NO,       KC.NO,     KC.NO,                         KC.NO,     KC.NO,       KC.NO,     KC.NO,   KC.ENT,
                                                KC.NO,     KC.NO,    KC.NO,       KC.NO,  KC.TAB,   KC.DEL,
     ]
@@ -58,8 +58,8 @@ Symbols.set_layout(
     [
         "@",       "_",       "-",         "=",       "~",                         "/",     "{",   "'",   "}",  "\\",
         "!",       "#",       "$",         "%",       "&",                         "<",     "(",   '"',   ")",  ">",
-        "¡",        "",        "",          "",       "|",                         "¿",     "[",   "`",   "]",  "?",
-                                         KC.NO,     KC.NO,   KC.NO,       KC.NO, KC.NO, KC.LSFT,
+        "¡",       "*",       "+",          "",       "|",                         "¿",     "[",   "`",   "]",  "?",
+                                         KC.NO,     KC.NO,   KC.NO,       KC.NO, KC.NO, KC.RSFT,
     ]
 )
    #convert(
